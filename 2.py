@@ -70,23 +70,6 @@ def write_file(file_name, lst):
 
 file_name = 'phone.csv'
 
-def copy_row(file_name, row_number):
-    rows = read_file(file_name)
-    if row_number < 1 or row_number > len(rows):
-        print("Неверный номер строки!")
-        return
-
-    row_to_copy = rows[row_number - 1]
-    new_file_name = "copy_phone.csv"
-
-    with open(new_file_name, "w", encoding='utf-8', newline='') as new_data:
-        f_writer = DictWriter(new_data, fieldnames=['Имя', 'Фамилия', 'Телефон'])
-        f_writer.writeheader()
-        f_writer.writerow(row_to_copy)
-
-    print(f"Строка {row_number} скопирована в файл copy_phone.csv!")
-
-
 def main():
     while True:
         command = input("Введите команду: ")
